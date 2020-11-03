@@ -69,7 +69,7 @@ $(document).ready(function () {
                 newsLink.append(newsTitle);
                 savedArticleDiv.append(newsLink, deleteBtn);
                 savedArticles.append(savedArticleDiv);
-                savedArticles.append($("<hr>"))
+                savedArticles.append($("<hr>"));
                 $(".btn-outline-danger").on("click", function () {
                     this.parentElement.nextElementSibling.remove();
                     this.parentElement.remove();
@@ -96,6 +96,7 @@ $(document).ready(function () {
                 var articleDiv = $("<div>");
                 var saveBtn = $("<button>");
                 var saveIcon = $("<i class=\"fas fa-save\"></i>")
+                articleDiv.attr("class", "clearfix");
                 saveBtn.attr({
                     type: "button",
                     class: "btn btn-outline-primary",
@@ -118,7 +119,6 @@ $(document).ready(function () {
                 articles.append(articleDiv);
             };
             $(".saveBtn").on("click", function() {
-                savedArticles.push(renderSave);
                 localStorage.setItem("savearticle", JSON.stringify(savedArticles));
                 var newsHref = this.parentElement.children[1].href;
                 var newsTitle = this.parentElement.children[1].innerHTML;
